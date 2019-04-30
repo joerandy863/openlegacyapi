@@ -6,7 +6,7 @@ import guru.springframework.domain.Item;;
 public interface ItemService {
     Iterable<Item> listAllItems();
 
-    Item getItemByItemNo(Integer id);
+    Item getItemById(Integer id);
 
     Item addItem(Item item);
 

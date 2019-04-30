@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/item")
-@Api(value="openlegacy", description="Operations pertaining to items in Open Legacy")
+@Api(value="openlegacy", description="Operations pertaining to items in OpenLegacy's Inventory")
 public class ItemController {
 
     private ItemService itemService;
@@ -37,10 +37,10 @@ public class ItemController {
         Iterable<Item> itemList = itemService.listAllItems();
         return itemList;
     }
-    @ApiOperation(value = "Search an item with an Item Number",response = Item.class)
+    @ApiOperation(value = "Search an item by its number",response = Item.class)
     @RequestMapping(value = "/read/{id}", method= RequestMethod.GET, produces = "application/json")
-    public Item readItem(@PathVariable Integer itemNo, Model model){
-       Item item = itemService.getItemByItemNo(itemNo);
+    public Item readItem(@PathVariable Integer id, Model model){
+       Item item = itemService.getItemById(id);
         return item;
     }
 
@@ -51,21 +51,32 @@ public class ItemController {
         return new ResponseEntity("Item saved successfully", HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Update quantity in stock")
-    @RequestMapping(value = "/quantity/{id}", method = RequestMethod.PUT, produces = "application/json")
-    public ResponseEntity updateQuantityItem(@PathVariable Integer id, @RequestBody Item item, @PathVariable Integer quantity){
-        Item storedItem = itemService.getItemByItemNo(id);
+    @ApiOperation(value = "Withdraw items from stock")
+    @RequestMapping(value = "/withdraw/{id}", method = RequestMethod.PUT, produces = "application/json")
+    public ResponseEntity withdrawItem(@RequestParam Integer id, @RequestParam Integer withdraw){
+        Item storedItem = itemService.getItemById(id);
         Integer amount = storedItem.getAmount();
-        amount += quantity;
+        amount -= withdraw;
         storedItem.setAmount(amount);
         itemService.addItem(storedItem);
-        return new ResponseEntity("Item quantity updated successfully", HttpStatus.OK);
+        return new ResponseEntity("Withdrawed Items successfully", HttpStatus.OK);
+    }
+    
+    @ApiOperation(value = "Deposit items to stock")
+    @RequestMapping(value = "/deposit/{id}", method = RequestMethod.PUT, produces = "application/json")
+    public ResponseEntity depositItem(@RequestParam Integer id, @RequestParam Integer deposit){
+        Item storedItem = itemService.getItemById(id);
+        Integer amount = storedItem.getAmount();
+        amount += deposit;
+        storedItem.setAmount(amount);
+        itemService.addItem(storedItem);
+        return new ResponseEntity("Deposited Items successfully", HttpStatus.OK);
     }
     
     @ApiOperation(value = "Delete an Item")
     @RequestMapping(value="/delete/{id}", method = RequestMethod.DELETE, produces = "application/json")
-    public ResponseEntity delete(@PathVariable Integer itemNo){
-        itemService.deleteItem(itemNo);
+    public ResponseEntity delete(@PathVariable Integer id){
+        itemService.deleteItem(id);
         return new ResponseEntity("Item deleted successfully", HttpStatus.OK);
     }
 

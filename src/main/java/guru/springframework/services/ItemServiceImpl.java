@@ -24,9 +24,9 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Item getItemByItemNo(Integer itemNo) {
-        logger.debug("getItemByItemNo called");
-        return itemRepository.findById(itemNo).orElse(null);
+    public Item getItemById(Integer id) {
+        logger.debug("getItemById called");
+        return itemRepository.findById(id).orElse(null);
     }
 
     @Override

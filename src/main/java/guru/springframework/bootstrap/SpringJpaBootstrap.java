@@ -34,28 +34,31 @@ public class SpringJpaBootstrap implements ApplicationListener<ContextRefreshedE
 
     private void loadItems() {
         Item laptop = new Item();
+        //laptop.setItemNo(123);
         laptop.setName("Laptop");
         laptop.setAmount(50);
         laptop.setInventoryCode("0123456789");
         itemRepository.save(laptop);
 
-        log.info("Laptop Saved- id: " + laptop.getItemNo());
+        log.info("Laptop Saved- id: " + laptop.getId());
 
         Item router = new Item();
+        //router.setItemNo(456);
         router.setName("Router");
         router.setAmount(28);
         router.setInventoryCode("9856214785");
         itemRepository.save(router);
 
-        log.info("Router Saved- id: " + router.getItemNo());
+        log.info("Router Saved- id: " + router.getId());
         
         Item tv = new Item();
+        //tv.setItemNo(789);
         tv.setName("50-inch TV");
         tv.setAmount(7);
         tv.setInventoryCode("4758698726");
         itemRepository.save(tv);
 
-        log.info("50-inh TV Saved- id: " + tv.getItemNo());
+        log.info("50-inh TV Saved- id: " + tv.getId());
         
         
     }

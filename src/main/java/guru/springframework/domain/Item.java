@@ -8,8 +8,10 @@ import javax.persistence.*;
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @ApiModelProperty(notes = "The database generated item number (ID)")
-    private Integer itemNo;
+    @ApiModelProperty(notes = "The database generated ID")
+    private Integer id;
+    /*@ApiModelProperty(notes = "The item number")
+    private Integer itemNo;*/
     @ApiModelProperty(notes = "The item name")
     private String name;
     @ApiModelProperty(notes = "The amount of items availables")
@@ -17,12 +19,20 @@ public class Item {
     @ApiModelProperty(notes = "The inventory code of each item")
     private String inventoryCode;
 	
+    public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+    
+	/*
     public Integer getItemNo() {
 		return itemNo;
 	}
 	public void setItemNo(Integer itemNo) {
 		this.itemNo = itemNo;
-	}
+	}*/
 	public String getName() {
 		return name;
 	}
