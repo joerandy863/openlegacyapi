@@ -1,8 +1,8 @@
 package guru.springframework.bootstrap;
 
+import guru.springframework.domain.Item;
 import guru.springframework.domain.Product;
-import guru.springframework.repositories.ProductRepository;
-
+import guru.springframework.repositories.ItemRepository;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,43 +17,47 @@ import java.util.List;
 @Component
 public class SpringJpaBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
-    private ProductRepository productRepository;
+    private ItemRepository itemRepository;
 
 
     private Logger log = LogManager.getLogger(SpringJpaBootstrap.class);
 
     @Autowired
-    public void setProductRepository(ProductRepository productRepository) {
-        this.productRepository = productRepository;
+    public void setItemRepository(ItemRepository itemRepository) {
+        this.itemRepository = itemRepository;
     }
-
+    
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
-        loadProducts();
+        loadItems();
     }
 
-    private void loadProducts() {
-        Product shirt = new Product();
-        shirt.setDescription("Spring Framework Guru Shirt");
-        shirt.setPrice(new BigDecimal("18.95"));
-        shirt.setImageUrl("https://springframework.guru/wp-content/uploads/2015/04/spring_framework_guru_shirt-rf412049699c14ba5b68bb1c09182bfa2_8nax2_512.jpg");
-        shirt.setProductId("235268845711068308");
-        productRepository.save(shirt);
+    private void loadItems() {
+        Item laptop = new Item();
+        laptop.setName("Laptop");
+        laptop.setAmount(50);
+        laptop.setInventoryCode("0123456789");
+        itemRepository.save(laptop);
 
-        log.info("Saved Shirt - id: " + shirt.getId());
+        log.info("Laptop Saved- id: " + laptop.getItemNo());
 
-        Product mug = new Product();
-        mug.setDescription("Spring Framework Guru Mug");
-        mug.setImageUrl("https://springframework.guru/wp-content/uploads/2015/04/spring_framework_guru_coffee_mug-r11e7694903c348e1a667dfd2f1474d95_x7j54_8byvr_512.jpg");
-        mug.setProductId("168639393495335947");
-        mug.setPrice(new BigDecimal("11.95"));
-        productRepository.save(mug);
+        Item router = new Item();
+        router.setName("Router");
+        router.setAmount(28);
+        router.setInventoryCode("9856214785");
+        itemRepository.save(router);
 
-        log.info("Saved Mug - id:" + mug.getId());
+        log.info("Router Saved- id: " + router.getItemNo());
+        
+        Item tv = new Item();
+        tv.setName("50-inch TV");
+        tv.setAmount(7);
+        tv.setInventoryCode("4758698726");
+        itemRepository.save(tv);
+
+        log.info("50-inh TV Saved- id: " + tv.getItemNo());
+        
+        
     }
 
-
-    }
-
-
-
+}

@@ -21,18 +21,18 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("guru.springframework.controllers"))
-                .paths(regex("/product.*"))
+                .paths(regex("/item.*"))
                 .build()
                 .apiInfo(metaData());
     }
     private ApiInfo metaData() {
         return new ApiInfoBuilder()
                 .title("Spring Boot REST API")
-                .description("\"Spring Boot REST API for Online Store\"")
+                .description("\"Spring Boot REST API for Open Legacy Store\"")
                 .version("1.0.0")
                 .license("Apache License Version 2.0")
                 .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0\"")
-                .contact(new Contact("John Thompson", "https://springframework.guru/about/", "john@springfrmework.guru"))
+                .contact(new Contact("Jose Luis Ortiz Chimal", "https://www.linkedin.com/in/jose-luis-ortiz-chimal-95a516102/", "joerandy863@gmail.com"))
                 .build();
     }
     @Override
