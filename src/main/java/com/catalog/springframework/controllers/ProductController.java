@@ -1,7 +1,5 @@
-package guru.springframework.controllers;
+package com.catalog.springframework.controllers;
 
-import guru.springframework.domain.Product;
-import guru.springframework.services.ProductService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -11,6 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import com.catalog.springframework.domain.Product;
+import com.catalog.springframework.services.ProductService;
 
 @RestController
 @RequestMapping("/product")
@@ -44,14 +45,16 @@ public class ProductController {
         return product;
     }
 
-    @ApiOperation(value = "Add a product")
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@ApiOperation(value = "Add a product")
     @RequestMapping(value = "/add", method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity saveProduct(@RequestBody Product product){
         productService.saveProduct(product);
         return new ResponseEntity("Product saved successfully", HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Update a product")
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@ApiOperation(value = "Update a product")
     @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT, produces = "application/json")
     public ResponseEntity updateProduct(@PathVariable Integer id, @RequestBody Product product){
         Product storedProduct = productService.getProductById(id);
@@ -62,7 +65,8 @@ public class ProductController {
         return new ResponseEntity("Product updated successfully", HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Delete a product")
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@ApiOperation(value = "Delete a product")
     @RequestMapping(value="/delete/{id}", method = RequestMethod.DELETE, produces = "application/json")
     public ResponseEntity delete(@PathVariable Integer id){
         productService.deleteProduct(id);

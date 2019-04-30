@@ -1,13 +1,15 @@
 package guru.springframework.services;
 
-import guru.springframework.domain.Product;
-import guru.springframework.repositories.ProductRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
+
+import com.catalog.springframework.domain.Product;
+import com.catalog.springframework.repositories.ProductRepository;
+import com.catalog.springframework.services.ProductServiceImpl;
 
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.when;

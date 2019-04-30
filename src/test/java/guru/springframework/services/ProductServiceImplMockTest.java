@@ -1,13 +1,15 @@
 package guru.springframework.services;
 
-import guru.springframework.domain.Product;
-import guru.springframework.repositories.ProductRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+
+import com.catalog.springframework.domain.Product;
+import com.catalog.springframework.repositories.ProductRepository;
+import com.catalog.springframework.services.ProductServiceImpl;
 
 import java.util.Optional;
 

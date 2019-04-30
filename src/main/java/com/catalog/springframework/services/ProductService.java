@@ -1,7 +1,7 @@
-package guru.springframework.services;
+package com.catalog.springframework.services;
 
 
-import guru.springframework.domain.Product;
+import com.catalog.springframework.domain.Product;
 
 public interface ProductService {
     Iterable<Product> listAllProducts();

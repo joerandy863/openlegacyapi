@@ -1,7 +1,5 @@
-package guru.springframework.controllers;
+package com.catalog.springframework.controllers;
 
-import guru.springframework.domain.Item;
-import guru.springframework.services.ItemService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -12,9 +10,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import com.catalog.springframework.domain.Item;
+import com.catalog.springframework.services.ItemService;
+
 @RestController
 @RequestMapping("/item")
-@Api(value="openlegacy", description="Operations pertaining to items in OpenLegacy's Inventory")
+@Api(value="catalog")
 public class ItemController {
 
     private ItemService itemService;

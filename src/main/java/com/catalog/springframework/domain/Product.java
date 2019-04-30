@@ -1,4 +1,4 @@
-package guru.springframework.domain;
+package com.catalog.springframework.domain;
 
 import io.swagger.annotations.ApiModelProperty;
 

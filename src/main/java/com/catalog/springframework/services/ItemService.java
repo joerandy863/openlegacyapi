@@ -1,7 +1,7 @@
-package guru.springframework.services;
+package com.catalog.springframework.services;
 
 
-import guru.springframework.domain.Item;;
+import com.catalog.springframework.domain.Item;;
 
 public interface ItemService {
     Iterable<Item> listAllItems();

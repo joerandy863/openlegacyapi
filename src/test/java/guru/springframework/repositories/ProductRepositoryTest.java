@@ -1,12 +1,15 @@
 package guru.springframework.repositories;
 
 import guru.springframework.configuration.RepositoryConfiguration;
-import guru.springframework.domain.Product;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import com.catalog.springframework.domain.Product;
+import com.catalog.springframework.repositories.ProductRepository;
 
 import java.math.BigDecimal;
 

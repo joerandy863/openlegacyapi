@@ -1,11 +1,12 @@
-package guru.springframework.services;
+package com.catalog.springframework.services;
 
-import guru.springframework.domain.Product;
-import guru.springframework.repositories.ProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.catalog.springframework.domain.Product;
+import com.catalog.springframework.repositories.ProductRepository;
 
 @Service
 public class ProductServiceImpl implements ProductService {

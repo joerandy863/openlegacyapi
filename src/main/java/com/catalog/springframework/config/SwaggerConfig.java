@@ -1,4 +1,4 @@
-package guru.springframework.config;
+package com.catalog.springframework.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,15 +20,15 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("guru.springframework.controllers"))
+                .apis(RequestHandlerSelectors.basePackage("com.catalog.springframework.controllers"))
                 .paths(regex("/item.*"))
                 .build()
                 .apiInfo(metaData());
     }
     private ApiInfo metaData() {
         return new ApiInfoBuilder()
-                .title("Spring Boot REST API")
-                .description("\"Spring Boot REST API for Open Legacy Store\"")
+                .title("Catalog REST API")
+                .description("\"Catalog REST API\"")
                 .version("1.0.0")
                 .license("Apache License Version 2.0")
                 .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0\"")

@@ -1,8 +1,4 @@
-package guru.springframework.bootstrap;
-
-import guru.springframework.domain.Item;
-import guru.springframework.domain.Product;
-import guru.springframework.repositories.ItemRepository;
+package com.catalog.springframework.bootstrap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,8 +7,8 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
-import java.util.List;
+import com.catalog.springframework.domain.Item;
+import com.catalog.springframework.repositories.ItemRepository;
 
 @Component
 public class SpringJpaBootstrap implements ApplicationListener<ContextRefreshedEvent> {
@@ -34,7 +30,6 @@ public class SpringJpaBootstrap implements ApplicationListener<ContextRefreshedE
 
     private void loadItems() {
         Item laptop = new Item();
-        //laptop.setItemNo(123);
         laptop.setName("Laptop");
         laptop.setAmount(50);
         laptop.setInventoryCode("0123456789");
@@ -43,7 +38,6 @@ public class SpringJpaBootstrap implements ApplicationListener<ContextRefreshedE
         log.info("Laptop Saved- id: " + laptop.getId());
 
         Item router = new Item();
-        //router.setItemNo(456);
         router.setName("Router");
         router.setAmount(28);
         router.setInventoryCode("9856214785");
@@ -52,7 +46,6 @@ public class SpringJpaBootstrap implements ApplicationListener<ContextRefreshedE
         log.info("Router Saved- id: " + router.getId());
         
         Item tv = new Item();
-        //tv.setItemNo(789);
         tv.setName("50-inch TV");
         tv.setAmount(7);
         tv.setInventoryCode("4758698726");

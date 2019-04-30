@@ -1,4 +1,4 @@
-package guru.springframework.domain;
+package com.catalog.springframework.domain;
 
 import io.swagger.annotations.ApiModelProperty;
 
@@ -10,8 +10,6 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @ApiModelProperty(notes = "The database generated ID")
     private Integer id;
-    /*@ApiModelProperty(notes = "The item number")
-    private Integer itemNo;*/
     @ApiModelProperty(notes = "The item name")
     private String name;
     @ApiModelProperty(notes = "The amount of items availables")
@@ -26,25 +24,20 @@ public class Item {
 		this.id = id;
 	}
     
-	/*
-    public Integer getItemNo() {
-		return itemNo;
-	}
-	public void setItemNo(Integer itemNo) {
-		this.itemNo = itemNo;
-	}*/
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	public Integer getAmount() {
 		return amount;
 	}
 	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
+	
 	public String getInventoryCode() {
 		return inventoryCode;
 	}
